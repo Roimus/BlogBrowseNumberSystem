@@ -12,16 +12,16 @@ class ViewCountCache:
         self.key = "article:number"
 
     # 看的数量增加
-    def add(self, id: int):
+    def add(self, article_id: int):
         try:
-            return self.client.hincrby(self.key, str(id), 1)
+            return self.client.hincrby(self.key, str(article_id), 1)
         except redis.RedisError as e:
             raise Exception(f"Redis操作失败: {str(e)}")
 
     # 获取数量
-    def get(self, id: int):
+    def get(self, article_id: int):
         try:
-            value = self.client.hget(self.key, str(id))
+            value = self.client.hget(self.key, str(article_id))
             return int(value) if value else 0
         except redis.RedisError as e:
             raise Exception(f"Redis操作失败: {str(e)}")
