@@ -1,0 +1,19 @@
+{
+	"info": {
+		"_postman_id": "47faff4c-f0fe-4de2-92c9-3e57b6c23ae3",
+		"name": "Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45448461",
+		"_collection_link": "https://rumos-8609026.postman.co/workspace/Rumos's-Workspace~f804e721-d1f0-4233-848a-027483e24e3b/collection/45448461-47faff4c-f0fe-4de2-92c9-3e57b6c23ae3?action=share&source=collection_link&creator=45448461"
+	},
+	"item": [
+		{
+			"name": "增加浏览",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
