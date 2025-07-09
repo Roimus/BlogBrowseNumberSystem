@@ -133,5 +133,5 @@ REDIS_PORT = 6379
 REDIS_DB = 0
 
 # Celery 配置
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://120.0.0.1:6379/0'
+CELERY_RESULT_BACKEND = 'redis://120.0.0.1:6379/0'

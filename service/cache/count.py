@@ -62,9 +62,23 @@ class ViewCountCache:
     # 计算一下命中率
     def get_cache_hit_rate(self):
         stats = self.client.hgetall(self.stats_key)
-        total_requests = int(stats.get("总的", 0))
-        hits = int(stats.get("成功", 0))
-        misses = int(stats.get("丢失", 0))
+        # 将数据类型调整为int
+        total_requests = 0
+        hits = 0
+        misses = 0
+        
+        for key, value in stats.items():
+            if isinstance(key, bytes):
+                key = key.decode('utf-8')
+            if isinstance(value, bytes):
+                value = value.decode('utf-8')
+            
+            if key == "总的":
+                total_requests = int(value)
+            elif key == "成功":
+                hits = int(value)
+            elif key == "丢失":
+                misses = int(value)
         
         hit_rate = (hits / total_requests * 100) if total_requests > 0 else 0
         

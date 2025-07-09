@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from article.views import article_add
+from article.views import article_add, get_cache, reset_cache
 
 urlpatterns = [
     path('blog/article/<int:article_id>/', article_add, name='article_add'),
+    path('blog/cache/get/', get_cache, name='get_cache'),
+    path('blog/cache/reset/', reset_cache, name='reset_cache'),
 ]
