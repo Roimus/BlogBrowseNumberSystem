@@ -1,4 +1,6 @@
 from article.models import Article
+from django.core.exceptions import ObjectDoesNotExist
+from django.db import DatabaseError, OperationalError
 
 
 class ArticleMysql:
@@ -7,7 +9,8 @@ class ArticleMysql:
             article = Article.objects.get(pk=article_id)
             return article.count
         except Exception as e:
-            raise Exception(f"查询观看数量失败: {str(e)}")
+            print(f"发生错误: {e}")
+            raise Exception(f"查询失败: {str(e)}")
 
     def add_number(self, article_id: int):
         try:
@@ -16,4 +19,5 @@ class ArticleMysql:
             article.save()
             return article.count
         except Exception as e:
-            raise Exception(f"增加观看数量失败: {str(e)}")
+            print(f"发生错误: {e}")
+            raise Exception(f"增加失败: {str(e)}")
